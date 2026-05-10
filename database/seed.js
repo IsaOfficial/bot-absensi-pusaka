@@ -1,4 +1,4 @@
-const { createUser } = require("./app/models/user.model");
+import { createUser } from "./app/models/user.model.js";
 
 const users = [
   {
