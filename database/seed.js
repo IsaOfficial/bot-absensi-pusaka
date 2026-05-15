@@ -1,4 +1,4 @@
-import { createUser } from "./app/models/user.model.js";
+import { createUser } from "./app/services/index.js";
 
 const users = [
   {
@@ -54,8 +54,12 @@ const users = [
 ];
 
 for (const user of users) {
-  createUser(user);
-  console.log(`[✔] User ${user.username} ditambahkan`);
+  try {
+    createUser(user);
+    console.log(`[✔] User ${user.username} ditambahkan`);
+  } catch (err) {
+    console.log(`[SKIP] ${user.username}`);
+  }
 }
 
 console.log("[✔] Seed selesai");
